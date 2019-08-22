@@ -7,9 +7,9 @@
 <script>
 export default {
   name: 'ComponentTemplate',
-  data: {
-    
-  },
+  data: () => ({
+    //
+  }),
   methods: {
     
   }
