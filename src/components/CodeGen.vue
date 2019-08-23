@@ -12,8 +12,8 @@
 
 <!-- Javascript  -->
 <script>
-import CodeGenInput from './CodeGenInput';
-import CodeGenOutput from './CodeGenOutput';
+import CodeGenInput from './CodeGenInput.vue';
+import CodeGenOutput from './CodeGenOutput.vue';
 
 export default {
   name: 'CodeGen',

@@ -3,7 +3,7 @@
   <v-row dense>
     <v-text-field
       id="generatePSW"
-      v-model="generatePSW"
+      v-model="fetchPSW"
       label="Generated Code"
       :rules="pswCodeRules"
       readonly
@@ -36,41 +36,8 @@ export default {
 		}
   },
   computed: {
-		generatePSW() {
-			let code = "";
-
-			if (this.format == "AI") {
-				code = "AI#" + this.ai;
-			}
-			else {
-				//if (!this.$refs.form.validate()) return "";
-
-				let args = [
-					this.cards,
-					this.banlist,
-					this.deckCheck ? "" : "NC",
-					this.rules,
-					this.lifePoints == "8000" ? "" : "LP" + this.lifePoints,
-					this.timeLimit == "180" ? "" : "TM" + this.timeLimit,
-					this.startingHand == "5" ? "" : "ST" + this.startingHand,
-					this.drawSize == "1" ? "" : "DR" + this.drawSize,
-					this.shuffleDecks ? "" : "NS",
-					this.spectateMode ? "" : "NW",
-					this.format,
-				].filter(x => x !== ""); //Filter out empty args
-
-				if (args.length) {
-					code = args.join(",") + "#";
-				}
-
-				code += this.roomName;
-
-				if (this.roomPassword.length) {
-					code += "$" + this.roomPassword;
-				}
-			}
-			
-			return code;
+		fetchPSW() {
+			return this.$store.state.CodeGen.code
 		}
 	},
 }

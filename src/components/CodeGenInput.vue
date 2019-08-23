@@ -169,6 +169,27 @@ export default {
 	methods: {
 		
 	},
+	computed: {
+		generatePSW () {
+			this.$store.commit("CodeGen/generatePSW", {
+				roomName: this.roomName,
+				roomPassword: this.roomPassword,
+				ai: this.ai,
+				cards: this.cards,
+				banlist: this.banlist,
+				deckCheck: this.deckCheck,
+				rules: this.rules,
+				lifePoints: this.lifePoints,
+				timeLimit: this.timeLimit,
+				startingHand: this.startingHand,
+				drawSize: this.drawSize,
+				shuffleDecks: this.shuffleDecks,
+				spectateMode: this.spectateMode,
+				format: this.format,
+			})
+			return null;
+		}
+	}
 }
 </script>
 
