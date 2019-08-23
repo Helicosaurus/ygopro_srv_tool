@@ -20,30 +20,29 @@
 </template>
 
 <!-- Javascript  -->
-<script>
-export default {
-  name: 'CodeGenOutput',
-  data: () => ({
-    pswCode: "",
-		pswCodeRules: [
-			x => x.length <= 20 || "This code is too long and will not work in-game."
-		],
-  }),
-  methods: {
-    copyToClipboard() {
-			document.getElementById('generatePSW').select();
-			document.execCommand("copy");
-		}
-  },
-  computed: {
-		fetchPSW() {
-			return this.$store.state.CodeGen.code
-		}
-	},
+<script lang="ts">
+import Vue from 'vue';
+import Component from 'vue-class-component';
+import { Bind } from 'vuex-class-bind';
+
+@Component({
+  components: {},
+})
+export default class CodeGenOutput extends Vue {
+  @Bind('code') public pswCode: string;
+
+  public pswCodeRules = [
+    (x: string) =>
+      x.length <= 20 || 'This code is too long and will not work in-game.',
+  ];
+
+  public copyToClipboard() {
+    document.getElementById('generatePSW');
+    document.execCommand('copy');
+  }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 </style>

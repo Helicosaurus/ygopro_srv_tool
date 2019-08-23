@@ -8,18 +8,16 @@
   </v-app>
 </template>
 
-<script>
-import store from './store/index.js';
+<script lang="ts">
+import Vue from 'vue';
+import Component from 'vue-class-component';
+
 import CodeGen from './components/CodeGen.vue';
 
-export default {
-  name: 'App',
-  store,
+@Component({
   components: {
     CodeGen,
   },
-  data: () => ({
-    //
-  }),
-};
+})
+export default class App extends Vue {}
 </script>

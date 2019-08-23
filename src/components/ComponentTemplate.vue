@@ -1,22 +1,14 @@
-<!-- Add html here -->
-<template>
-  
-</template>
+<template></template>
 
-<!-- Javascript  -->
-<script>
-export default {
-  name: 'ComponentTemplate',
-  data: () => ({
-    //
-  }),
-  methods: {
-    
-  }
-}
+<script lang="ts">
+import Vue from 'vue';
+import Component from 'vue-class-component';
+
+@Component({
+  components: {},
+})
+export default class CodeGen extends Vue {}
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 </style>

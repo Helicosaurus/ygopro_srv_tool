@@ -1,4 +1,3 @@
-<!-- Add html here -->
 <template>
   <v-card>
     <v-container>
@@ -10,24 +9,23 @@
   </v-card>
 </template>
 
-<!-- Javascript  -->
-<script>
+<script lang="ts">
+import Vue from 'vue';
+import Component from 'vue-class-component';
+
 import CodeGenInput from './CodeGenInput.vue';
 import CodeGenOutput from './CodeGenOutput.vue';
 
-export default {
-  name: 'CodeGen',
+@Component({
   components: {
     CodeGenInput,
     CodeGenOutput,
   },
-  data: () => ({
-		isFormValid: true,
-  }),
+})
+export default class CodeGen extends Vue {
+  public isFormValid = true;
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 </style>
