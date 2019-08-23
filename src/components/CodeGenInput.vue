@@ -71,124 +71,40 @@
 
 <!-- Javascript  -->
 <script>
+import { mapState } from 'vuex'
+
 export default {
   name: 'CodeGenInput',
   data: () => ({
-    roomName: "",
-		roomPassword: "",
-		format: "",
-		formatItems: [
-			{ text: 'Single', value: '' },
-				{ text: 'Match', value: 'M' },
-				{ text: 'Tag', value: 'T' },
-				{ text: 'Versus AI', value: 'AI' },
-		],
-		ai: "",
-		aiItems: [
-			{ text: '- Random -', value: '' },
-			"Altergeist",
-			"Blackwing",
-			"BlueEyes",
-			"Burn",
-			"CyberDragon",
-			"Dragunity",
-			"EvilSwarm",
-			"Frog",
-			"God",
-			"Gravekeeper",
-			"Graydle",
-			"Horus",
-			"Level8",
-			"Lightsworn",
-			"Nekroz",
-			"OldSchool",
-			"Orcust",
-			"PureWinds",
-			"Qliphort",
-			"Rainbow",
-			"Rank5",
-			"Salaman",
-			"SkyStriker",
-			"ST1732",
-			"ToadallyAwesome",
-			"Yosenju",
-			"ZexalWeapons",
-			"Zoodiac",
-		],
-		cards: "",
-		cardsItems: [
-			{ text: 'Server default', value: '' },
-			{ text: 'TCG only', value: 'TO' },
-			{ text: 'OCG only', value: 'OO' },
-			{ text: 'TCG + OCG', value: 'OT' },
-			{ text: 'No Unique', value: 'NU' },
-		],
-		banlist: "",
-		banlistItems: [
-			{ text: 'Server default', value: '' },
-			{ text: 'TCG', value: 'LF1' },
-			{ text: 'OCG', value: 'LF2' },
-			{ text: 'World', value: 'LF3' },
-			{ text: 'None', value: 'NF' },
-		],
-		deckCheck: true,
-		rules: "",
-		rulesItems: [
-			{ text: 'MR1 (Synchro, 2008)', value: 'MR1' },
-			{ text: 'MR2 (Xyz, 2011)', value: 'MR2' },
-			{ text: 'MR3 (Pendulum, 2014)', value: 'MR3' },
-			{ text: 'MR4 (Link, 2017)', value: '' },
-		],
-		lifePoints: "8000",
-		lifePointsRules: [
-			x => x !== "" || "You must enter a number.",
-			x => x.search(/\D/) == -1 && x !== "0" || "Value is not a valid number.",
-			x => parseInt(x) <= 99999 || "Max value is 99 999."
-		],
-		timeLimit: "180",
-		timeLimitRules: [
-			x => x !== "" || "You must enter a number.",
-			x => x.search(/\D/) == -1 || "Value is not a valid number.",
-			x => parseInt(x) <= 999 || "Max value is 999."
-		],
-		startingHand: "5",
-		startingHandRules: [
-			x => x !== "" || "You must enter a number.",
-			x => x.search(/\D/) == -1 || "Value is not a valid number.",
-			x => parseInt(x) <= 40 || "Max value is 40."
-		],
-		drawSize: "1",
-		drawSizeRules: [
-			x => x !== "" || "You must enter a number.",
-			x => x.search(/\D/) == -1 && x !== "0" || "Value is not a valid number.",
-			x => parseInt(x) <= 35 || "Max value is 35."
-		],
-		shuffleDecks: true,
-		spectateMode: true,
-  }),
-	methods: {
 		
-	},
+  }),
 	computed: {
-		generatePSW () {
-			this.$store.commit("CodeGen/generatePSW", {
-				roomName: this.roomName,
-				roomPassword: this.roomPassword,
-				ai: this.ai,
-				cards: this.cards,
-				banlist: this.banlist,
-				deckCheck: this.deckCheck,
-				rules: this.rules,
-				lifePoints: this.lifePoints,
-				timeLimit: this.timeLimit,
-				startingHand: this.startingHand,
-				drawSize: this.drawSize,
-				shuffleDecks: this.shuffleDecks,
-				spectateMode: this.spectateMode,
-				format: this.format,
-			})
-			return null;
-		}
+
+		...mapState("CodeGen", [
+			"roomName",
+			"roomPassword",
+			"format",
+			"formatItems",
+			"ai",
+			"aiItems",
+			"cards",
+			"cardsItems",
+			"banlist",
+			"banlistItems",
+			"deckCheck",
+			"rules",
+			"rulesItems",
+			"lifePoints",
+			"lifePointsRules",
+			"timeLimit",
+			"timeLimitRules",
+			"startingHand",
+			"startingHandRules",
+			"drawSize",
+			"drawSizeRules",
+			"shuffleDecks",
+			"spectateMode"
+		]),
 	}
 }
 </script>
