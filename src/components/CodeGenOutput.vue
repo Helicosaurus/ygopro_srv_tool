@@ -36,7 +36,7 @@ export default class CodeGenOutput extends Vue {
   ];
 
   public copyToClipboard() {
-    document.getElementById('pswCode');
+    (document.getElementById('pswCode') as any).select();
     document.execCommand('copy');
   }
 }
