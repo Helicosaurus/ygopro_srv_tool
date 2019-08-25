@@ -8,7 +8,7 @@
     "lint": "vue-cli-service lint",
     "predeploy-gh": "npm run build && git add dist && git commit -m 'Deploy' || true",
     "deploy-gh": "git subtree push --prefix dist origin gh-pages",
-    "postdepoly-gh": "git push"
+    "postdeploy-gh": "git push"
   },
   "dependencies": {
     "core-js": "^2.6.5",
