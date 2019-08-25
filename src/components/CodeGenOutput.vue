@@ -33,7 +33,8 @@ export default class CodeGenOutput extends Vue {
   @Bind('pswCode') public pswCode: string;
 
   public pswCodeRules = [
-    (x: string) => x.length <= 20 || 'This code is too long and will not work in-game.',
+    (x: string) =>
+      x.length <= 20 || 'This code is too long and will not work in-game.',
   ];
 
   public copyToClipboard() {
