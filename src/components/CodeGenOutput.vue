@@ -2,8 +2,8 @@
 <template>
   <v-row dense>
     <v-text-field
-      id="generatePSW"
-      v-model="fetchPSW"
+      id="pswCode"
+      v-model="pswCode"
       label="Generated Code"
       :rules="pswCodeRules"
       readonly
@@ -29,15 +29,14 @@ import { Bind } from 'vuex-class-bind';
   components: {},
 })
 export default class CodeGenOutput extends Vue {
-  @Bind('code') public pswCode: string;
+  @Bind('pswCode') public pswCode: string;
 
   public pswCodeRules = [
-    (x: string) =>
-      x.length <= 20 || 'This code is too long and will not work in-game.',
+    (x: string) => x.length <= 20 || 'This code is too long and will not work in-game.',
   ];
 
   public copyToClipboard() {
-    document.getElementById('generatePSW');
+    document.getElementById('pswCode');
     document.execCommand('copy');
   }
 }

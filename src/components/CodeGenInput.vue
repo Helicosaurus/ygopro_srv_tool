@@ -44,6 +44,28 @@ import { Bind } from 'vuex-class-bind';
 })
 export default class CodeGenInput extends Vue {
   @Bind('roomName') public roomName: string;
+  @Bind('roomPassword') public roomPassword: string;
+  @Bind('format') public format: string;
+  @Bind('formatItems') public formatItems: any[];
+  @Bind('ai') public ai: string;
+  @Bind('aiItems') public aiItems: any[];
+  @Bind('cards') public cards: string;
+  @Bind('cardsItems') public cardsItems: any[];
+  @Bind('banlist') public banlist: string;
+  @Bind('banlistItems') public banlistItems: any[];
+  @Bind('deckCheck') public deckCheck: boolean;
+  @Bind('rules') public rules: string;
+  @Bind('rulesItems') public rulesItems: any[];
+  @Bind('lifePoints') public lifePoints: string;
+  @Bind('lifePointsRules') public lifePointsRules: any[];
+  @Bind('timeLimit') public timeLimit: string;
+  @Bind('timeLimitRules') public timeLimitRules: any[];
+  @Bind('startingHand') public startingHand: string;
+  @Bind('startingHandRules') public startingHandRules: any[];
+  @Bind('drawSize') public drawSize: string;
+  @Bind('drawSizeRules') public drawSizeRules: any[];
+  @Bind('shuffleDecks') public shuffleDecks: boolean;
+  @Bind('spectateMode') public spectateMode: boolean;
 }
 </script>
 

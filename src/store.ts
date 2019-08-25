@@ -98,24 +98,39 @@ export default new Vuex.Store({
     ],
     shuffleDecks: true,
     spectateMode: true,
+    pswCode: '',
   },
 
   mutations: {
     roomName: (state: any, payload: string) => (state.roomName = payload),
-    code: (state: any, payload: string) => (state.code = payload),
-    roomPassword: (state: any, payload: string) =>
-      (state.roomPassword = payload),
+    roomPassword: (state: any, payload: string) => (state.roomPassword = payload),
     format: (state: any, payload: string) => (state.format = payload),
+    formatItems: (state: any, payload: any[]) => (state.formatItems = payload),
+    ai: (state: any, payload: string) => (state.ai = payload),
+    aiItems: (state: any, payload: any[]) => (state.aiItems = payload),
+    cards: (state: any, payload: string) => (state.cards = payload),
+    cardsItems: (state: any, payload: any[]) => (state.cardsItems = payload),
+    banlist: (state: any, payload: string) => (state.banlist = payload),
+    banlistItems: (state: any, payload: any[]) => (state.banlistItems = payload),
+    deckCheck: (state: any, payload: boolean) => (state.deckCheck = payload),
+    rules: (state: any, payload: string) => (state.rules = payload),
+    rulesItems: (state: any, payload: any[]) => (state.rulesItems = payload),
+    lifePoints: (state: any, payload: string) => (state.lifePoints = payload),
+    lifePointsRules: (state: any, payload: any[]) => (state.lifePointsRules = payload),
+    timeLimit: (state: any, payload: string) => (state.timeLimit = payload),
+    timeLimitRules: (state: any, payload: any[]) => (state.timeLimitRules = payload),
+    startingHand: (state: any, payload: string) => (state.startingHand = payload),
+    startingHandRules: (state: any, payload: any[]) => (state.startingHandRules = payload),
+    drawSize: (state: any, payload: string) => (state.drawSize = payload),
+    drawSizeRules: (state: any, payload: any[]) => (state.drawSizeRules = payload),
+    shuffleDecks: (state: any, payload: boolean) => (state.shuffleDecks = payload),
+    spectateMode: (state: any, payload: boolean) => (state.spectateMode = payload),
+    pswCode: (state: any, payload: string) => (state.pswCode = payload),
   },
 
   actions: {
-    setRoomName: ({ commit }, payload) => commit('roomName', payload),
-    setCode: ({ commit }, payload) => commit('code', payload),
-    setRoomPassword: ({ commit }, payload) => commit('roomPassword', payload),
-    setFormat: ({ commit }, payload) => commit('format', payload),
-
     generatePSW({ commit, state }) {
-      let code = '';
+      let code: string = '';
 
       if (state.format === 'AI') {
         code = 'AI#' + state.ai;
@@ -145,14 +160,59 @@ export default new Vuex.Store({
         }
       }
 
-      commit('code', code);
+      commit('pswCode', code);
     },
+
+    setRoomName({ commit }, payload) { commit('roomName', payload); this.dispatch('generatePSW'); },
+    setRoomPassword({ commit }, payload) { commit('roomPassword', payload); this.dispatch('generatePSW'); },
+    setFormat({ commit }, payload) { commit('format', payload); this.dispatch('generatePSW'); },
+    setFormatItems({ commit }, payload) { commit('formatItems', payload); this.dispatch('generatePSW'); },
+    setAi({ commit }, payload) { commit('ai', payload); this.dispatch('generatePSW'); },
+    setAiItems({ commit }, payload) { commit('aiItems', payload); this.dispatch('generatePSW'); },
+    setCards({ commit }, payload) { commit('cards', payload); this.dispatch('generatePSW'); },
+    setCardsItems({ commit }, payload) { commit('cardsItems', payload); this.dispatch('generatePSW'); },
+    setBanlist({ commit }, payload) { commit('banlist', payload); this.dispatch('generatePSW'); },
+    setBanlistItems({ commit }, payload) { commit('banlistItems', payload); this.dispatch('generatePSW'); },
+    setDeckCheck({ commit }, payload) { commit('deckCheck', payload); this.dispatch('generatePSW'); },
+    setRules({ commit }, payload) { commit('rules', payload); this.dispatch('generatePSW'); },
+    setRulesItems({ commit }, payload) { commit('rulesItems', payload); this.dispatch('generatePSW'); },
+    setLifePoints({ commit }, payload) { commit('lifePoints', payload); this.dispatch('generatePSW'); },
+    setLifePointsRules({ commit }, payload) { commit('lifePointsRules', payload); this.dispatch('generatePSW'); },
+    setTimeLimit({ commit }, payload) { commit('timeLimit', payload); this.dispatch('generatePSW'); },
+    setTimeLimitRules({ commit }, payload) { commit('timeLimitRules', payload); this.dispatch('generatePSW'); },
+    setStartingHand({ commit }, payload) { commit('startingHand', payload); this.dispatch('generatePSW'); },
+    setStartingHandRules({ commit }, payload) { commit('startingHandRules', payload); this.dispatch('generatePSW'); },
+    setDrawSize({ commit }, payload) { commit('drawSize', payload); this.dispatch('generatePSW'); },
+    setDrawSizeRules({ commit }, payload) { commit('drawSizeRules', payload); this.dispatch('generatePSW'); },
+    setShuffleDecks({ commit }, payload) { commit('shuffleDecks', payload); this.dispatch('generatePSW'); },
+    setSpectateMode({ commit }, payload) { commit('spectateMode', payload); this.dispatch('generatePSW'); },
+    setPswCode({ commit }, payload) { commit('pswCode', payload); this.dispatch('generatePSW'); },
   },
 
   getters: {
     getRoomName: (state: any) => state.roomName,
-    getCode: (state: any) => state.code,
     getRoomPassword: (state: any) => state.roomPassword,
     getFormat: (state: any) => state.format,
+    getFormatItems: (state: any) => state.formatItems,
+    getAi: (state: any) => state.ai,
+    getAiItems: (state: any) => state.aiItems,
+    getCards: (state: any) => state.cards,
+    getCardsItems: (state: any) => state.cardsItems,
+    getBanlist: (state: any) => state.banlist,
+    getBanlistItems: (state: any) => state.banlistItems,
+    getDeckCheck: (state: any) => state.deckCheck,
+    getRules: (state: any) => state.rules,
+    getRulesItems: (state: any) => state.rulesItems,
+    getLifePoints: (state: any) => state.lifePoints,
+    getLifePointsRules: (state: any) => state.lifePointsRules,
+    getTimeLimit: (state: any) => state.timeLimit,
+    getTimeLimitRules: (state: any) => state.timeLimitRules,
+    getStartingHand: (state: any) => state.startingHand,
+    getStartingHandRules: (state: any) => state.startingHandRules,
+    getDrawSize: (state: any) => state.drawSize,
+    getDrawSizeRules: (state: any) => state.drawSizeRules,
+    getShuffleDecks: (state: any) => state.shuffleDecks,
+    getSpectateMode: (state: any) => state.spectateMode,
+    getPswCode: (state: any) => state.pswCode,
   },
 });
