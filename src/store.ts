@@ -73,8 +73,7 @@ export default new Vuex.Store({
     lifePoints: '8000',
     lifePointsRules: [
       (x: string) => x !== '' || 'You must enter a number.',
-      (x: string) =>
-        (x.search(/\D/) === -1 && x !== '0') || 'Value is not a valid number.',
+      (x: string) => (x.search(/\D/) === -1 && x !== '0') || 'Value is not a valid number.',
       (x: string) => parseInt(x, 10) <= 99999 || 'Max value is 99 999.',
     ],
     timeLimit: '180',
@@ -92,8 +91,7 @@ export default new Vuex.Store({
     drawSize: '1',
     drawSizeRules: [
       (x: string) => x !== '' || 'You must enter a number.',
-      (x: string) =>
-        (x.search(/\D/) === -1 && x !== '0') || 'Value is not a valid number.',
+      (x: string) => (x.search(/\D/) === -1 && x !== '0') || 'Value is not a valid number.',
       (x: string) => parseInt(x, 10) <= 35 || 'Max value is 35.',
     ],
     shuffleDecks: true,
@@ -103,8 +101,7 @@ export default new Vuex.Store({
 
   mutations: {
     roomName: (state: any, payload: string) => (state.roomName = payload),
-    roomPassword: (state: any, payload: string) =>
-      (state.roomPassword = payload),
+    roomPassword: (state: any, payload: string) => (state.roomPassword = payload),
     format: (state: any, payload: string) => (state.format = payload),
     formatItems: (state: any, payload: any[]) => (state.formatItems = payload),
     ai: (state: any, payload: string) => (state.ai = payload),
@@ -112,28 +109,20 @@ export default new Vuex.Store({
     cards: (state: any, payload: string) => (state.cards = payload),
     cardsItems: (state: any, payload: any[]) => (state.cardsItems = payload),
     banlist: (state: any, payload: string) => (state.banlist = payload),
-    banlistItems: (state: any, payload: any[]) =>
-      (state.banlistItems = payload),
+    banlistItems: (state: any, payload: any[]) => (state.banlistItems = payload),
     deckCheck: (state: any, payload: boolean) => (state.deckCheck = payload),
     rules: (state: any, payload: string) => (state.rules = payload),
     rulesItems: (state: any, payload: any[]) => (state.rulesItems = payload),
     lifePoints: (state: any, payload: string) => (state.lifePoints = payload),
-    lifePointsRules: (state: any, payload: any[]) =>
-      (state.lifePointsRules = payload),
+    lifePointsRules: (state: any, payload: any[]) => (state.lifePointsRules = payload),
     timeLimit: (state: any, payload: string) => (state.timeLimit = payload),
-    timeLimitRules: (state: any, payload: any[]) =>
-      (state.timeLimitRules = payload),
-    startingHand: (state: any, payload: string) =>
-      (state.startingHand = payload),
-    startingHandRules: (state: any, payload: any[]) =>
-      (state.startingHandRules = payload),
+    timeLimitRules: (state: any, payload: any[]) => (state.timeLimitRules = payload),
+    startingHand: (state: any, payload: string) => (state.startingHand = payload),
+    startingHandRules: (state: any, payload: any[]) => (state.startingHandRules = payload),
     drawSize: (state: any, payload: string) => (state.drawSize = payload),
-    drawSizeRules: (state: any, payload: any[]) =>
-      (state.drawSizeRules = payload),
-    shuffleDecks: (state: any, payload: boolean) =>
-      (state.shuffleDecks = payload),
-    spectateMode: (state: any, payload: boolean) =>
-      (state.spectateMode = payload),
+    drawSizeRules: (state: any, payload: any[]) => (state.drawSizeRules = payload),
+    shuffleDecks: (state: any, payload: boolean) => (state.shuffleDecks = payload),
+    spectateMode: (state: any, payload: boolean) => (state.spectateMode = payload),
     pswCode: (state: any, payload: string) => (state.pswCode = payload),
   },
 
