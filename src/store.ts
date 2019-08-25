@@ -153,7 +153,7 @@ export default new Vuex.Store({
 
         code += state.roomName;
 
-        if (state.roomPassword.length) {
+        if (state.roomPassword) {
           code += '$' + state.roomPassword;
         }
       }
