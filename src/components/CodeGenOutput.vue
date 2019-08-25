@@ -2,7 +2,8 @@
 <template>
   <v-row dense>
     <v-text-field
-      id="pswCode"
+      ref="pswCode"
+      @focus="$event.target.select()"
       v-model="pswCode"
       label="Generated Code"
       :rules="pswCodeRules"
@@ -36,7 +37,8 @@ export default class CodeGenOutput extends Vue {
   ];
 
   public copyToClipboard() {
-    (document.getElementById('pswCode') as any).select();
+    const str: string = 'pswCode';
+    (this.$refs[str] as HTMLInputElement).focus();
     document.execCommand('copy');
   }
 }
