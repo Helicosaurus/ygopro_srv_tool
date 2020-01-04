@@ -23,6 +23,7 @@ export default new Vuex.Store({
       'Burn',
       'CyberDragon',
       'Dragunity',
+      'Dragun',
       'EvilSwarm',
       'Frog',
       'God',
@@ -68,7 +69,8 @@ export default new Vuex.Store({
       { text: 'MR1 (Synchro, 2008)', value: 'MR1' },
       { text: 'MR2 (Xyz, 2011)', value: 'MR2' },
       { text: 'MR3 (Pendulum, 2014)', value: 'MR3' },
-      { text: 'MR4 (Link, 2017)', value: '' },
+      { text: 'MR4 (Link, 2017)', value: 'MR4' },
+      { text: 'MR5 (April 2020)', value: '' },
     ],
     lifePoints: '8000',
     lifePointsRules: [
